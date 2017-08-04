@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillBarker", "BillBarker\BillBarker.csproj", "{A51DA1B2-11FF-4F96-B8C5-DDAC3A691815}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D58B754D-29EE-4EC7-9BD6-A7B9990A7C94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{F4E7FFBD-3278-4B1F-A2AC-C5E9389847CB}"
+	ProjectSection(SolutionItems) = preProject
+		User.sql = User.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class Objects", "Class Objects", "{3C3136F8-C450-48AF-93CE-7CA8148D6EE3}"
+	ProjectSection(SolutionItems) = preProject
+		ArticleBill.cs = ArticleBill.cs
+		ArticleTags.cs = ArticleTags.cs
+		Community.cs = Community.cs
+		Discussion.cs = Discussion.cs
+		Messages.cs = Messages.cs
+		Notifications.cs = Notifications.cs
+		NotificationType.cs = NotificationType.cs
+		Permissions.cs = Permissions.cs
+		Priority.cs = Priority.cs
+		PriorityVotes.cs = PriorityVotes.cs
+		RealmOfInfluence.cs = RealmOfInfluence.cs
+		Source.cs = Source.cs
+		Tags.cs = Tags.cs
+		User.cs = User.cs
+		UserCommunity.cs = UserCommunity.cs
+		UserFollow.cs = UserFollow.cs
+		UserSecurity.cs = UserSecurity.cs
+		UserSummary.cs = UserSummary.cs
+		UserTags.cs = UserTags.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A51DA1B2-11FF-4F96-B8C5-DDAC3A691815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51DA1B2-11FF-4F96-B8C5-DDAC3A691815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51DA1B2-11FF-4F96-B8C5-DDAC3A691815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51DA1B2-11FF-4F96-B8C5-DDAC3A691815}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4E7FFBD-3278-4B1F-A2AC-C5E9389847CB} = {D58B754D-29EE-4EC7-9BD6-A7B9990A7C94}
+		{3C3136F8-C450-48AF-93CE-7CA8148D6EE3} = {D58B754D-29EE-4EC7-9BD6-A7B9990A7C94}
+	EndGlobalSection
+EndGlobal
