@@ -1,8 +1,11 @@
 ﻿using System;
 
-public class Class1
+public class NotificationType
 {
-	public Class1()
+    string Code { get; set; }
+    string Description { get; set; }
+
+    public NotificationType()
 	{
 	}
 }

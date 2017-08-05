@@ -1,8 +1,15 @@
 ﻿using System;
 
-public class Class1
+public class UserFollow
 {
-	public Class1()
+    int UserFollowId { get; set; }
+    bool IsPrimary { get; set; }
+
+    public UserFollow()
 	{
 	}
+
+    User IsUser { get; set; }
+    UserCommunity IsCommunity { get; set; }
+    UserTags IsTags { get; set; }
 }

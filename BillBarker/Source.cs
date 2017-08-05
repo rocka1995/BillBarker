@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Class1
+public class Source
 {
     int Id { get; set; }
 
@@ -11,4 +11,8 @@ public class Class1
     string Name { get; set; }
 
     bool IsActive { get; set; }
+
+    public Source()
+    {
+    }
 }

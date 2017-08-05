@@ -2,7 +2,11 @@
 
 public class Priority
 {
-    int Id { get; set; }
+    int PriorityId { get; set; }
 
     string Description { get; set; }
+
+    public Priority()
+    {
+    }
 }

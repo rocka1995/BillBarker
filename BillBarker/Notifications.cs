@@ -1,8 +1,14 @@
 ﻿using System;
 
-public class Class1
+public class Notifications
 {
-	public Class1()
+    int NotificationsId { get; set; }
+    string Message { get; set; }
+    DateTime Sent { get; set; }
+
+    public Notifications()
 	{
 	}
+
+    User IsUser { get; set; }
 }
