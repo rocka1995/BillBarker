@@ -1,8 +1,14 @@
 ﻿using System;
 
-public class Class1
+public class PriorityVotes
 {
-	public Class1()
+    int PriorityVotesId { get; set; }
+    int Votes { get; set; }
+
+    public PriorityVotes()
 	{
 	}
+    
+    ArticleBill ArticleBillIs { get; set; }
+    Priority PriorityIs { get; set; }
 }

@@ -1,8 +1,16 @@
 ﻿using System;
 
-public class Class1
+public class UserSummary
 {
-	public Class1()
+    int UserSummaryId { get; set; }
+    int TrustPoints { get; set; }
+    bool IsBanned { get; set; }
+    bool HasNotification { get; set; }
+    int NotificationCount { get; set; }
+
+    public UserSummary()
 	{
 	}
+
+    NotificationType CodeIs { get; set; }
 }

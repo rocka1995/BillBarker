@@ -18,6 +18,10 @@ public class ArticleBill
 
     DateTime LastUpdate { get; set; }
 
+    public ArticleBill()
+    {
+    }
+
     RealmOfInfluence InInfluence { get; set; }
 
     Source FromSource { get; set; }
