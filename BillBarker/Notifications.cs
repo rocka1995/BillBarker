@@ -2,7 +2,7 @@
 
 public class Notifications
 {
-    int NotificationsId { get; set; }
+    int Id { get; set; }
     string Message { get; set; }
     DateTime Sent { get; set; }
 
@@ -10,5 +10,5 @@ public class Notifications
 	{
 	}
 
-    User IsUser { get; set; }
+    User UserIs { get; set; }
 }

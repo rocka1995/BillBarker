@@ -9,7 +9,7 @@ public class UserFollow
 	{
 	}
 
-    User IsUser { get; set; }
+    User UserIs { get; set; }
     UserCommunity IsCommunity { get; set; }
     UserTags IsTags { get; set; }
 }

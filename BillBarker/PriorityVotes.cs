@@ -9,6 +9,6 @@ public class PriorityVotes
 	{
 	}
     
-    ArticleBill ArticleBillIs { get; set; }
-    Priority PriorityIs { get; set; }
+    ArticleBill ArticleIs { get; set; }
+    Priority IsPriority { get; set; }
 }

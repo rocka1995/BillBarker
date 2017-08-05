@@ -1,8 +1,14 @@
 ﻿using System;
 
-public class Class1
+public class UserTags
 {
-	public Class1()
+    int Id { get; set; }
+    bool ToNotify { get; set; }
+
+    public UserTags()
 	{
 	}
+
+    User UserIs { get; set; }
+    Tags TagIs { get; set; }
 }

@@ -1,12 +1,11 @@
-using System;
+﻿using System;
 
 public class Influence
 {
-    int InfluenceId { get; set; }
-    int WithinInfluenceId { get; set; }
+    int Id { get; set; }
     string Description { get; set; }
-
+    int WithinInfluenceId { get; set; }
     public Influence()
-    {
-    }
+	{
+	}
 }

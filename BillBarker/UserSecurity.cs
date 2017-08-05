@@ -10,6 +10,6 @@ public class UserSecurity
 	{
 	}
 
-    User IsUser { get; set; }
+    User UserIs { get; set; }
     Permission HavePermission { get; set; }
 }

@@ -5,4 +5,8 @@ public class SourceType
     string Code { get; set; }
 
     string Description { get; set; }
+
+    public SourceType()
+    {
+    }
 }
