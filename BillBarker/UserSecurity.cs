@@ -1,8 +1,15 @@
 ﻿using System;
 
-public class Class1
+public class UserSecurity
 {
-	public Class1()
+    
+    string Password { get; set; }
+    string Email { get; set; }
+
+    public UserSecurity()
 	{
 	}
+
+    User IsUser { get; set; }
+    Permission HavePermission { get; set; }
 }

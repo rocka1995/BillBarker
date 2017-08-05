@@ -11,4 +11,8 @@ public class Source
     string Name { get; set; }
 
     bool IsActive { get; set; }
+
+    public Source()
+    {
+    }
 }
