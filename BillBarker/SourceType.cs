@@ -1,8 +1,8 @@
 ﻿using System;
 
-public class Priority
+public class SourceType
 {
-    int Id { get; set; }
+    string Code { get; set; }
 
     string Description { get; set; }
 }

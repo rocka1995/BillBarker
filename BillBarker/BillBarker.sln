@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{3C
 		PriorityVotes.cs = PriorityVotes.cs
 		RealmOfInfluence.cs = RealmOfInfluence.cs
 		Source.cs = Source.cs
+		SourceType.cs = SourceType.cs
 		Tags.cs = Tags.cs
 		User.cs = User.cs
 		UserCommunity.cs = UserCommunity.cs

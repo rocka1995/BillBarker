@@ -1,8 +1,10 @@
 ﻿using System;
 
-public class Class1
+public class RealmOfInfluence
 {
-	public Class1()
-	{
-	}
+    int Id { get; set; }
+
+	string Description { get; set; }
+
+    RealmOfInfluence WithinInfluence { get; set; }
 }
