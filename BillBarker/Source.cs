@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Class1
+public class Source
 {
     int Id { get; set; }
 
