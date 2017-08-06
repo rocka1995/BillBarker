@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="85dd377e-a510-4cd9-8dc9-3b471b5d5409" ChangeDateTime="08/06/2017 20:02:47">
+    <Property Name="ElementName" Value="[dbo].[Table1].[IsBill]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsSpotlight" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b9e34085-a4b9-4c5d-92c1-79c465369987" ChangeDateTime="08/06/2017 20:10:21">
+    <Property Name="ElementName" Value="[dbo].[Permissions].[Descriptions]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Permissions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Description" />
+  </Operation>
+</Operations>
