@@ -2,6 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+
+    <h2>Latest Posts</h2>
+
+
+    <div class="jumbotron">
+        <h4>Article Title: "<asp:Label ID="article_test" runat="server"></asp:Label>"</h4>
+        <asp:LinkButton runat="server" ID="viewSummaryButton" href="Summary.aspx" CssClass="btn btn-primary btn-sm">>View summary</asp:LinkButton>
+    </div>
+
+
+
+
+
+    <!--
     <div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
@@ -38,5 +52,6 @@
             </p>
         </div>
     </div>
+    -->
 
 </asp:Content>
