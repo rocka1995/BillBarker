@@ -17,6 +17,21 @@ CREATE TABLE [dbo].[User]
 --Create Messages
 --Create Discussion
 --Create Article Tags
+CREATE TABLE [dbo].[BBArticleTags]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	FOREIGN KEY (ArticleId) REFERENCES ArticleBill(Id),
+	FOREIGN KEY (TagId) REFERENCES Tags(Id)
+)
+--Create Tags
+CREATE TABLE [dbo].[BBTags]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NCHAR(25) NOT NULL,
+	[IsRequest] BIT NOT NULL,
+	FOREIGN KEY (InfluenceId) REFERENCES Influence(Id),
+	FOREIGN KEY (ArticleId) REFERENCES ArticleBill(Id)
+)
 --Create Community
 --Create Priority Votes
 
