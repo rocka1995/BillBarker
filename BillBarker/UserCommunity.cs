@@ -1,8 +1,13 @@
 ﻿using System;
 
-public class Class1
+public class UserCommunity
 {
-	public Class1()
+    int Id { get; set; }
+
+    public UserCommunity()
 	{
 	}
+
+    User UserIs { get; set; }
+    Community CommunityIs { get; set; }
 }

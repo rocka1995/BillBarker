@@ -60,5 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="User.sql" />
+    <Build Include="ArticleBill.sql" />
+    <Build Include="Source.sql" />
+    <Build Include="Permissions.sql" />
+    <Build Include="Priority.sql" />
+    <Build Include="Influence.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="BB_Proj.refactorlog" />
   </ItemGroup>
 </Project>

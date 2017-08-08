@@ -1,8 +1,15 @@
 ﻿using System;
 
-public class Class1
+public class Tags
 {
-	public Class1()
+    int Id { get; set; }
+    string Name { get; set; }
+    bool IsRequest { get; set; }
+
+    public Tags()
 	{
 	}
+
+    Influence InfluenceIs { get; set; }
+    ArticleBill ArticleIs { get; set; }
 }

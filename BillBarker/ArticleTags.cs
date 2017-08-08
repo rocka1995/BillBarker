@@ -1,8 +1,14 @@
 ﻿using System;
 
-public class Class1
+public class ArticleTags
 {
-	public Class1()
+    int Id { get; set; }
+
+    public ArticleTags()
 	{
 	}
+
+    ArticleBill ArticleIs { get; set; }
+    Tags TagIs { get; set; }
+
 }

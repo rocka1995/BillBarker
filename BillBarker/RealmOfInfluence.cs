@@ -7,4 +7,7 @@ public class RealmOfInfluence
 	string Description { get; set; }
 
     RealmOfInfluence WithinInfluence { get; set; }
+    public RealmOfInfluence()
+    {
+    }
 }
