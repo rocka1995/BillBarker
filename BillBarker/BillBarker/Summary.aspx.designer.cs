@@ -10,24 +10,15 @@
 namespace BillBarker {
     
     
-    public partial class _Default {
+    public partial class Summary {
         
         /// <summary>
-        /// article_test control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label article_test;
-        
-        /// <summary>
-        /// viewSummaryButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton viewSummaryButton;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
     }
 }
