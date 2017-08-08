@@ -1,75 +1,60 @@
-﻿--Create User
-CREATE TABLE [dbo].[User]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Username] NVARCHAR(50) NOT NULL, 
-    [RetiredFlag] BIT NOT NULL,
-	UNIQUE(Username)
-)
-
---Create User Security
---Create Notifications
---Create Notification Type
---Create UserFollow
---Create UserSummary
---Create UserCommunity
---Create UserTags
---Create Messages
---Create Discussion
---Create Article Tags
---Create Community
---Create Priority Votes
-
-
---Create Source
-CREATE TABLE [dbo].[Source]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [SourceType] NCHAR(2) NOT NULL, 
-    [SourceAddress] NCHAR(75) NOT NULL, 
-    [Name] NCHAR(25) NOT NULL, 
-    [IsActive] BIT NOT NULL
-)
-
---Create Priority
-CREATE TABLE [dbo].[Priority]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Description] NCHAR(25) NOT NULL
-)
-
---Create Permissions
-CREATE TABLE [dbo].[Permissions]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Description] NCHAR(50) NOT NULL, 
-    [IsModerator] BIT NOT NULL
-)
---Create ArticleBill
-CREATE TABLE [dbo].[ArticleBill]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Questionable] BIT NOT NULL, 
-    [Verified] BIT NOT NULL, 
-    [QuestionableCount] INT NULL, 
-    [InfluenceId] INT NOT NULL, 
-    [SourceId] INT NOT NULL, 
-    [PriorityId] INT NOT NULL, 
-    [Title] NCHAR(75) NOT NULL, 
-    [IsBill] BIT NOT NULL, 
-    [IsSpotlight] BIT NOT NULL, 
-    [Updated] DATETIME NOT NULL,
-	FOREIGN KEY (InfluenceId) REFERENCES Influence(Id),
-	FOREIGN KEY (SourceId) REFERENCES Source(Id),
-	FOREIGN KEY (PriorityId) REFERENCES Priority(Id)
-)
-
---Create Influence
-CREATE TABLE [dbo].[Influence]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Description] NCHAR(50) NOT NULL, 
-    [WithinInfluenceId] INT NOT NULL
-)
-
-
+﻿CREATE TABLE BBUser(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+Username VARCHAR(50) NOT NULL, 
+RetiredFlag bool NOT NULL,
+UNIQUE(Username));
+CREATE TABLE BBSource(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+SourceType CHAR(2) NOT NULL, 
+SourceAddress VARCHAR(75) NOT NULL, 
+Name VARCHAR(50) NOT NULL, 
+IsActive BOOL NOT NULL,
+UNIQUE(SourceAddress));
+CREATE TABLE BBPriority(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+Description VARCHAR(50) NOT NULL
+);
+CREATE TABLE BBPermissions(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+Description VARCHAR(50) NOT NULL, 
+IsModerator BOOL NOT NULL
+);
+CREATE TABLE BBInfluence(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+Description CHAR(50) NOT NULL, 
+WithinInfluenceId INT NULL
+);
+CREATE TABLE BBArticleBill(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+Questionable BOOL NOT NULL, 
+Verified BOOL NOT NULL, 
+QuestionableCount INT NULL, 
+InfluenceId INT NOT NULL, 
+SourceId INT NOT NULL, 
+PriorityId INT NOT NULL, 
+Title VARCHAR(75) NOT NULL, 
+IsBill BOOL NOT NULL, 
+IsSpotlight BOOL NOT NULL, 
+Updated DATETIME NOT NULL,
+UNIQUE(Title),
+FOREIGN KEY (InfluenceId) REFERENCES BBInfluence(Id),
+FOREIGN KEY (SourceId) REFERENCES BBSource(Id),
+FOREIGN KEY (PriorityId) REFERENCES BBPriority(Id)
+);
+CREATE TABLE BBTags(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(30) NOT NULL,
+IsRequest BOOL NOT NULL,
+InfluenceId INT NULL, 
+ArticleId INT NOT NULL,
+UNIQUE(Name),
+FOREIGN KEY (InfluenceId) REFERENCES BBInfluence(Id),
+FOREIGN KEY (ArticleId) REFERENCES BBArticleBill(Id)
+);
+CREATE TABLE BBArticleTags(
+Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+TagId INT NOT NULL,
+ArticleId INT NOT NULL,
+FOREIGN KEY (TagId) REFERENCES BBTags(Id),
+FOREIGN KEY (ArticleId) REFERENCES BBArticleBill(Id)
+);
