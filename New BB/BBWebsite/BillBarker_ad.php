@@ -10,7 +10,10 @@ if($mysqli->connect_errno){
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html class="gr__web_engr_oregonstate_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html class="gr__web_engr_oregonstate_edu">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home Page - BillBarker</title>
 	<link href="./Content/bootstrap.css" rel="stylesheet">
@@ -36,8 +39,13 @@ if($mysqli->connect_errno){
 		        <li><a href="http://web.engr.oregonstate.edu/~diazalb/billbarker/BillBarker.php"><b>Home</b></a></li>
 		        <li><a href="http://web.engr.oregonstate.edu/~diazalb/billbarker/About.html"><b>About</b></a></li>
 		        <li><a href="http://web.engr.oregonstate.edu/~diazalb/billbarker/Contact.html"><b>Contact</b></a></li>
-		        <li><input name="ctl00$fakeSearchBox" type="text" id="fakeSearchBox" style="height:16px;width:200px; right;"></li>
-    		    </ul>
+				</ul>
+                    <div class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
 		</div>
 	    </div>
 	</div>

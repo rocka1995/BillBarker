@@ -95,29 +95,29 @@
 
 
 
-	<div class="navbar navbar-inverse navbar-fixed-top">
-	    <div class="container">
-		<div class="navbar-header">
-		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-    		    </button>
-    		    <a href="./" class="navbar-brand"><b>BillBarker</b></a>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    		    <a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php" class="navbar-brand"><b>BillBarker</b></a>
 		</div>
 		<div class="navbar-collapse collapse">
     		    <ul class="nav navbar-nav">
-		        <li><a href="./">Home</a></li>
-		        <li><a href="About">About</a></li>
-		        <li><a href="Contact">Contact</a></li>
-		        <li><input name="ctl00$fakeSearchBox" type="text" id="fakeSearchBox" style="height:16px;width:200px; text-align:right;" /></li>
-    		    </ul>
-		</div>
-	    </div>
-	</div>
+		        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php"><b>Home</b></a></li>
+		        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/About.html"><b>About</b></a></li>
+		        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Contact.html"><b>Contact</b></a></li>
+                        <li><input name="ctl00$fakeSearchBox" type="text" id="fakeSearchBox" style="height:16px;width:200px; text-align:right;" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 	<div class="container body-content">
-	    <h2>Latest Posts</h2>
+	    <h2><b><i>In The Spotlight</i></b></h2>
 	    <div class="jumbotron">
 		<div>
 		    <h3>Article: "

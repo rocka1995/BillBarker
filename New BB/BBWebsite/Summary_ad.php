@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>
 	Bill Summary
@@ -109,10 +110,14 @@ echo "
 					<ul class='nav navbar-nav'>
 						<li><a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/BillBarker.php'><b>Home</b></a></li>
 						<li><a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/About.html'><b>About</b></a></li>
-						<li><a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/Contact.html'><b>Contact</b></a></li>
 					</ul>
+                    <div class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
 			</div>
-			<input name='ctl00fakeSearchBox' type='text' id='fakeSearchBox' style='height:16px;width:200px; text-align:right;' />
 		</div>
 	</div>
 ";
