@@ -106,6 +106,18 @@
 		    border-width:1px;
 		    margin: 2px;
 		}
+
+		#genericTag {
+		    padding: 2px;
+		    font-size:70%;
+		    color:#582A72;
+		    border-color:#582A72;
+		    display:inline;
+		    text-align:center;
+		    border-style:solid;
+		    border-width:1px;
+		    margin: 2px;
+		}
 	</style>
     </head>
  
@@ -120,10 +132,6 @@
    <body>
 	<script type="text/javascript"></script>
 	<script type="text/javascript"></script>
-
-
-
-
 
 
 
@@ -187,7 +195,6 @@
 						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
 					$ques->close();
 
-
 					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 1");
 					$verf->execute();
 					$verf->bind_result($verfRes);
@@ -202,11 +209,41 @@
 					while($spot->fetch())
 						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
 					$spot->close();
+
+
+					$other = $mysqli->prepare("SELECT BBArticleBill WHERE BBArticleBill.Id = 1");
+					$other->execute();
+					$other->bind_result($generic);
+				
+					while($other->fetch()) {
+
+					}
+
+
+
+
+
+
+
+				?>
+
+				<?php
+						
+					
+
+
+
+
+
+
 				?>
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
+			    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flagged Questionable'>";
+			    ?>
 		    	</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
@@ -292,8 +329,11 @@
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
-		    	</p>
+		    	    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flagged Questionable'>";
+			    ?>
+			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
@@ -381,8 +421,11 @@
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
-		    	</p>
+		   	    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flagged Questionable'>";
+			    ?>    
+			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
