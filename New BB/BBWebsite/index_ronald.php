@@ -208,7 +208,7 @@
 					$spot->bind_result($spotRes);
 					while($spot->fetch())
 						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
-					$spot->clo
+					$spot->close();
 
 
 				?>
