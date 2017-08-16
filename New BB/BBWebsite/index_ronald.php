@@ -216,7 +216,7 @@
 	
 			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=1" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
 			    <?php
 					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flag as Questionable'>";
 					else echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flagged Questionable'>";
@@ -305,7 +305,7 @@
 				
 			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=2" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
 		    	    <?php
 					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flag as Questionable'>";
 					else echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flagged Questionable'>";
@@ -397,7 +397,7 @@
 				?>
 			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=3" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
 		   	    <?php
 					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flag as Questionable'>";
 					else echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flagged Questionable'>";
