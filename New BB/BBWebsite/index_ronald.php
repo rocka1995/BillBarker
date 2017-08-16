@@ -211,20 +211,6 @@
 					$spot->close();
 
 
-					$other = $mysqli->prepare("SELECT BBArticleBill WHERE BBArticleBill.Id = 1");
-					$other->execute();
-					$other->bind_result($generic);
-				
-					while($other->fetch()) {
-
-					}
-
-
-
-
-
-
-
 				?>
 
 				<?php
