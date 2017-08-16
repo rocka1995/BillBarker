@@ -208,35 +208,12 @@
 					$spot->bind_result($spotRes);
 					while($spot->fetch())
 						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
-					$spot->close();
-
-
-					$other = $mysqli->prepare("SELECT BBArticleBill WHERE BBArticleBill.Id = 1");
-					$other->execute();
-					$other->bind_result($generic);
-				
-					while($other->fetch()) {
-
-					}
-
-
-
-
-
+					$spot->clo
 
 
 				?>
 
-				<?php
-						
-					
-
-
-
-
-
-
-				?>
+	
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
