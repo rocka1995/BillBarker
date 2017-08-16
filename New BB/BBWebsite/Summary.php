@@ -2,7 +2,6 @@
 
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>
 	Bill Summary
@@ -26,22 +25,9 @@ if($con->connect_errno > 0){
 }
 
 
-// We now need to setup our SQL query to grab all bill from this page.
-// The example SQL query we copied from phpMyAdmin is:
-// SELECT * FROM `bill` WHERE `articleid` =1 LIMIT 0 , 30
-// If we run this query, it will ALWAYS grab only the bill from our
-// article with an id of 1. We therefore need to update the SQL query
-// so that on article 2 is searches for the "2", on page is searches for
-// "3", and so on.
-// If you notice in the URL, the id of the article is set after id=
-// For example, in the following URL:
-// http://phpandmysql.inmotiontesting.com/page2.php?id=2
-// ... the article id is 2. We can grab and store this number in a variable
-// by using the following code:
-
 //CHOOSING ARTICLE MANUALLY FIRST!  FIX ME!
-//$article_id = $_GET['id'];
-$article_id = 2;
+$article_id = $_GET['id'];
+//$article_id = 2;
 
 // following code will check to ensure that $article_id is a number.
 
@@ -96,40 +82,41 @@ echo "
 	</script>
 
 
-	<div class='navbar navbar-inverse navbar-fixed-top'>
-		<div class='container'>
-			<div class='navbar-header'>
-				<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-					<span class='icon-bar'></span>
-					<span class='icon-bar'></span>
-					<span class='icon-bar'></span>
-				</button>
-				<a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/BillBarker.php' class='navbar-brand'><b>BillBarker</b></a>
-			</div>
-			<div class='navbar-collapse collapse'>
-					<ul class='nav navbar-nav'>
-						<li><a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/BillBarker.php'><b>Home</b></a></li>
-						<li><a href='http://web.engr.oregonstate.edu/~diazalb/billbarker/About.html'><b>About</b></a></li>
-					</ul>
-                    <div class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+        <div class='navbar navbar-inverse navbar-fixed-top'>
+            <div class='container'>
+                <div class='navbar-header'>
+                    <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                    </button>
+                    <a href='http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php' class='navbar-brand'><b>BillBarker</b></a>
+                </div>
+                <div class='navbar-collapse collapse'>
+                    <ul class='nav navbar-nav'>
+                        <li><a href='./Home.php'><b>Home</b></a></li>
+                        <li><a href='./About.html'><b>About</b></a></li>
+                        <li><a href='./Contact.html'><b>Contact</b></a></li>
+                    </ul>
+                    <div class='navbar-form navbar-left'>
+                        <div class='form-group'>
+                            <input type='text' class='form-control' placeholder='Search'>
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type='submit' class='btn btn-default'>Submit</button>
                     </div>
-			</div>
-		</div>
-	</div>
+                </div>
+            </div>
+        </div>
 ";
 
 //Display Body-start
 echo "
 	<div class='container body-content'>
-		<h2>Summary</h2>
+		<h2>Bill Summary</h2>
     <div id='summaryContent' class='jumbotron'>
         
-        <h3>$title</h3>
-        <p>[Legislative Bill Content Here]</p>
+        <h3>$title</h3><br/>
+        <p>[Legislative Bill Content Here]</p><br/>
 
 		<a href='$articleURL'>$articleURL</a>
 		
@@ -171,7 +158,7 @@ echo "
 			<p id='buttons'>
 				<input type='button' class='btn btn-danger' id='questionableButton' style='float: right;' value='Flag as Questionable'>
 			</p>
-					
+			<br/>		
 			<div class='lastUpdate' style='float:right; font-size:50%'>
 				<p> Last Updated: $updated
 				</p>
