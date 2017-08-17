@@ -70,6 +70,53 @@
 		    margin: 0px;
 		    font-size: 12pt;
 		    text-align: center;
+
+			#questionableTag {
+		    padding: 2px;
+		    font-size:70%;
+		    color:#7E1518;
+		    border-color:#7E1518;
+		    display:inline;
+		    text-align:center;
+		    border-style:solid;
+		    border-width:1px;
+		    margin: 2px;
+		}
+		
+		#verifiedTag {
+		    padding: 2px;
+		    font-size:70%;
+		    color:#034500;
+		    border-color:#034500;
+		    display:inline;
+		    text-align:center;
+		    border-style:solid;
+		    border-width:1px;
+		    margin: 2px;
+		}
+		
+		#spotlightTag {
+		    padding: 2px;
+		    font-size:70%;
+		    color:#162955;
+		    border-color:#162955;
+		    display:inline;
+		    text-align:center;
+		    border-style:solid;
+		    border-width:1px;
+		    margin: 2px;
+		}
+
+		#genericTag {
+		    padding: 2px;
+		    font-size:70%;
+		    color:#582A72;
+		    border-color:#582A72;
+		    display:inline;
+		    text-align:center;
+		    border-style:solid;
+		    border-width:1px;
+		    margin: 2px;
 		}
 	</style>
     </head>
@@ -85,13 +132,6 @@
    <body>
 	<script type="text/javascript"></script>
 	<script type="text/javascript"></script>
-
-
-
-
-
-
-
 
 
 
@@ -145,28 +185,72 @@
 
 		    "</h3>
 		    
-		    <div class="bottom-section">
+		  <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#7E1518; border-color:#7E1518; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px;">
-					Questionable
-				</p>
-				<p id="verifiedTag" class="bg-primary" style="font-size:70%; color:#034500; border-color:#034500; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Verified
-				</p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#162955; border-color:#162955; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Spotlight
-				</p>
+				<?php
+					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 1");
+					$ques->execute();
+					$ques->bind_result($quesRes);
+					while($ques->fetch())
+						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
+					$ques->close();
+
+					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 1");
+					$verf->execute();
+					$verf->bind_result($verfRes);
+					while($verf->fetch())
+						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
+					$verf->close();
+
+	
+					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 1");
+					$spot->execute();
+					$spot->bind_result($spotRes);
+					while($spot->fetch())
+						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
+					$spot->close();
+
+
+					$other = $mysqli->prepare("SELECT BBArticleBill WHERE BBArticleBill.Id = 1");
+					$other->execute();
+					$other->bind_result($generic);
+				
+					while($other->fetch()) {
+
+					}
+
+
+
+
+
+
+
+				?>
+
+				<?php
+						
+					
+
+
+
+
+
+
+				?>
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
+			    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flagged Questionable'>";
+			    ?>
 		    	</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
 					<?php
-						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
+						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 1"))){
 							echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 						}
 						if(!$stmt->execute()){
@@ -193,12 +277,12 @@
 
 
 
-   	    <div class="jumbotron" id="article1">
+   	    <div class="jumbotron" id="article2">
 		<div>
 		    <h3>Article: "
 
 			<?php
-				if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Title FROM BBArticleBill WHERE BBArticleBill.Id = 1"))){
+				if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Title FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
 					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 				}
 				if(!$stmt->execute()){
@@ -218,25 +302,44 @@
 		    <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#7E1518; border-color:#7E1518; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px;">
-					Questionable
-				</p>
-				<p id="verifiedTag" class="bg-primary" style="font-size:70%; color:#034500; border-color:#034500; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Verified
-				</p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#162955; border-color:#162955; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Spotlight
-				</p>
+				<?php
+					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 2");
+					$ques->execute();
+					$ques->bind_result($quesRes);
+					while($ques->fetch())
+						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
+					$ques->close();
+
+
+					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 2");
+					$verf->execute();
+					$verf->bind_result($verfRes);
+					while($verf->fetch())
+						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
+					$verf->close();
+
+	
+					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 2");
+					$spot->execute();
+					$spot->bind_result($spotRes);
+					while($spot->fetch())
+						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
+					$spot->close();
+				?>
+				
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
-		    	</p>
+		    	    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flagged Questionable'>";
+			    ?>
+			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
 					<?php
-						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 1"))){
+						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
 							echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 						}
 						if(!$stmt->execute()){
@@ -292,20 +395,38 @@
 		    <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#7E1518; border-color:#7E1518; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px;">
-					Questionable
-				</p>
-				<p id="verifiedTag" class="bg-primary" style="font-size:70%; color:#034500; border-color:#034500; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Verified
-				</p>
-				<p id="questionableTag" class="bg-primary" style="font-size:70%; color:#162955; border-color:#162955; display:inline; text-align:center; border-radius:25px; border-style:solid; border-width:1px">
-					Spotlight
-				</p>
+				<?php
+					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 3");
+					$ques->execute();
+					$ques->bind_result($quesRes);
+					while($ques->fetch())
+						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
+					$ques->close();
+
+
+					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 3");
+					$verf->execute();
+					$verf->bind_result($verfRes);
+					while($verf->fetch())
+						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
+					$verf->close();
+
+	
+					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 3");
+					$spot->execute();
+					$spot->bind_result($spotRes);
+					while($spot->fetch())
+						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
+					$spot->close();
+				?>
 			</div>
 			<p id="buttons">
 		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <input type="button" class="btn btn-danger" id="questionableButton" style="float: right;" value="Flag as Questionable">
-		    	</p>
+		   	    <?php
+					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flag as Questionable'>";
+					else echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flagged Questionable'>";
+			    ?>    
+			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
