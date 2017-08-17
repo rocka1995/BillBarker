@@ -90,7 +90,7 @@ echo "
                         <span class='icon-bar'></span>
                         <span class='icon-bar'></span>
                     </button>
-                    <a href='http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php' class='navbar-brand'><b>BillBarker</b></a>
+                    <a href='./Home.php' class='navbar-brand'><b>BillBarker</b></a>
                 </div>
                 <div class='navbar-collapse collapse'>
                     <ul class='nav navbar-nav'>

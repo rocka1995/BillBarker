@@ -44,10 +44,10 @@
 		}
 
 		.sidebar {
-    		    max-width: 300px;
+    		max-width: 300px;
 		    min-width: 150px;
-    		    height: 150px;
-    		    overflow-y: auto;
+    		height: 150px;
+    		overflow-y: auto;
 		    overflow-x: hidden;
 		    right: 0;
 		    display: inline-block;
@@ -70,8 +70,9 @@
 		    margin: 0px;
 		    font-size: 12pt;
 		    text-align: center;
+		}
 
-			#questionableTag {
+		#questionableTag {
 		    padding: 2px;
 		    font-size:70%;
 		    color:#7E1518;
@@ -144,13 +145,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-    		    <a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php" class="navbar-brand"><b>BillBarker</b></a>
-		</div>
+                    <a href="./Home.php" class="navbar-brand"><b>BillBarker</b></a>
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Home.php"><b>Home</b></a></li>
-                        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/About.html"><b>About</b></a></li>
-                        <li><a href="http://web.engr.oregonstate.edu/~rocka/BBWebsite/Contact.html"><b>Contact</b></a></li>
+                        <li><a href="./Home.php"><b>Home</b></a></li>
+                        <li><a href="./About.html"><b>About</b></a></li>
+                        <li><a href="./Contact.html"><b>Contact</b></a></li>
                     </ul>
                     <div class="navbar-form navbar-left">
                         <div class="form-group">
@@ -161,110 +162,36 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
-	    <h2><b><i>In The Spotlight</i></b></h2>
-	    <div class="jumbotron">
+	<div class="container body-content">
+	    <h2>Latest Posts</h2>
+	    <div class="jumbotron" id="article1">
 		<div>
 		    <h3>Article: "
 
-			<?php
-				if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Title FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
-					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-				}
-				if(!$stmt->execute()){
-					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				if(!$stmt->bind_result($title)){
-					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				while($stmt->fetch()){
- 					echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-				}
-				$stmt->close();
-			?>
-
+			<tr>
+<td>
+Scientists call out New York Times for incorrect claim about climate report
+</td>
+</tr>
 		    "</h3>
 		    
-		  <div class="bottom-section">
+		    <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<?php
-					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 1");
-					$ques->execute();
-					$ques->bind_result($quesRes);
-					while($ques->fetch())
-						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
-					$ques->close();
-
-					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 1");
-					$verf->execute();
-					$verf->bind_result($verfRes);
-					while($verf->fetch())
-						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
-					$verf->close();
-
+				<p id='questionableTag' class='bg-primary'>Questionable</p>
 	
-					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 1");
-					$spot->execute();
-					$spot->bind_result($spotRes);
-					while($spot->fetch())
-						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
-					$spot->close();
-
-
-					$other = $mysqli->prepare("SELECT BBArticleBill WHERE BBArticleBill.Id = 1");
-					$other->execute();
-					$other->bind_result($generic);
-				
-					while($other->fetch()) {
-
-					}
-
-
-
-
-
-
-
-				?>
-
-				<?php
-						
-					
-
-
-
-
-
-
-				?>
 			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-			    <?php
-					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flag as Questionable'>";
-					else echo "<input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flagged Questionable'>";
-			    ?>
-		    	</p>
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=1" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+			    <input type='button' class='btn btn-danger' id='questionableButton1' style='float: right;' value='Flagged Questionable'>		    	</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
-					<?php
-						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 1"))){
-							echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-						}
-						if(!$stmt->execute()){
-							echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						if(!$stmt->bind_result($title)){
-							echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						while($stmt->fetch()){
- 							echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-						}
-						$stmt->close();
-					?>
-
+					<tr>
+<td>
+2017-08-08 08:32:58
+</td>
+</tr>
 
 				</p>
 				
@@ -274,86 +201,33 @@
 	    </div>
 
 
-
-
-
    	    <div class="jumbotron" id="article2">
 		<div>
 		    <h3>Article: "
 
-			<?php
-				if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Title FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
-					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-				}
-				if(!$stmt->execute()){
-					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				if(!$stmt->bind_result($title)){
-					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				while($stmt->fetch()){
- 					echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-				}
-				$stmt->close();
-			?>
-
+			<tr>
+<td>
+H.R.3639 - To establish a position of Science Laureate of the United States
+</td>
+</tr>
 		    "</h3>
 		    
 		    <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<?php
-					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 2");
-					$ques->execute();
-					$ques->bind_result($quesRes);
-					while($ques->fetch())
-						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
-					$ques->close();
-
-
-					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 2");
-					$verf->execute();
-					$verf->bind_result($verfRes);
-					while($verf->fetch())
-						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
-					$verf->close();
-
-	
-					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 2");
-					$spot->execute();
-					$spot->bind_result($spotRes);
-					while($spot->fetch())
-						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
-					$spot->close();
-				?>
-				
+				<p id='spotlightTag' class='bg-primary'>Spotlight</p>				
 			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-		    	    <?php
-					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flag as Questionable'>";
-					else echo "<input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flagged Questionable'>";
-			    ?>
-			</p>
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=2" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+		    	    <input type='button' class='btn btn-danger' id='questionableButton2' style='float: right;' value='Flag as Questionable'>			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
-					<?php
-						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 2"))){
-							echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-						}
-						if(!$stmt->execute()){
-							echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						if(!$stmt->bind_result($title)){
-							echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						while($stmt->fetch()){
- 							echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-						}
-						$stmt->close();
-					?>
-
+					<tr>
+<td>
+2017-08-01 09:31:30
+</td>
+</tr>
 
 				</p>
 				
@@ -361,91 +235,35 @@
 		    </div>
 		</div>
 	</div>
-
-
-
-
-
-
-
 
 	
 	<div class="jumbotron" id="article3">
 		<div>
 		    <h3>Article: "
 
-			<?php
-				if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Title FROM BBArticleBill WHERE BBArticleBill.Id = 3"))){
-					echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-				}
-				if(!$stmt->execute()){
-					echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				if(!$stmt->bind_result($title)){
-					echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-				}
-				while($stmt->fetch()){
- 					echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-				}
-				$stmt->close();
-			?>
-
+			<tr>
+<td>
+H.R.3210 - SECRET Act of 2017
+</td>
+</tr>
 		    "</h3>
 		    
 		    <div class="bottom-section">
 			<div class="articleTags">
 				<p style="font-size: 70%;display:inline;"> Tags: </p>
-				<?php
-					$ques = $mysqli->prepare("SELECT BBArticleBill.Questionable FROM BBArticleBill WHERE BBArticleBill.Id = 3");
-					$ques->execute();
-					$ques->bind_result($quesRes);
-					while($ques->fetch())
-						if($quesRes == 1) echo "<p id='questionableTag' class='bg-primary'>Questionable</p>";
-					$ques->close();
-
-
-					$verf = $mysqli->prepare("SELECT BBArticleBill.Verified FROM BBArticleBill WHERE BBArticleBill.Id = 3");
-					$verf->execute();
-					$verf->bind_result($verfRes);
-					while($verf->fetch())
-						if($verfRes == 1) echo "<p id='verifiedTag' class='bg-primary'>Verified</p>";
-					$verf->close();
-
-	
-					$spot = $mysqli->prepare("SELECT BBArticleBill.IsSpotlight FROM BBArticleBill WHERE BBArticleBill.Id = 3");
-					$spot->execute();
-					$spot->bind_result($spotRes);
-					while($spot->fetch())
-						if($spotRes == 1) echo "<p id='spotlightTag' class='bg-primary'>Spotlight</p>";
-					$spot->close();
-				?>
-			</div>
+				<p id='verifiedTag' class='bg-primary'>Verified</p><p id='spotlightTag' class='bg-primary'>Spotlight</p>			</div>
 			<p id="buttons">
-		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.html" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
-		   	    <?php
-					if($quesRes == 0) echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flag as Questionable'>";
-					else echo "<input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flagged Questionable'>";
-			    ?>    
+		  	    <a id="MainContent_viewSummaryButton" class="btn btn-primary btn-sm" href="Summary.php?id=3" href="javascript:__doPostBack(&#39;ctl00$MainContent$viewSummaryButton&#39;,&#39;&#39;)">>View summary</a>
+		   	    <input type='button' class='btn btn-danger' id='questionableButton3' style='float: right;' value='Flag as Questionable'>    
 			</p>
 			<div class="lastUpdate" style="float:right; font-size:50%">
 				<p> Last Updated:
 				
-					<?php
-						if(!($stmt = $mysqli->prepare("SELECT BBArticleBill.Updated FROM BBArticleBill WHERE BBArticleBill.Id = 3"))){
-							echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
-						}
-						if(!$stmt->execute()){
-							echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						if(!$stmt->bind_result($title)){
-							echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
-						}
-						while($stmt->fetch()){
- 							echo "<tr>\n<td>\n" . $title . "\n</td>\n</tr>";
-						}
-						$stmt->close();
-					?>
-
+					<tr>
+<td>
+2017-08-10 18:15:07
+</td>
+</tr>
 
 				</p>
 				
@@ -453,29 +271,6 @@
 		    </div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     	<hr />
             <footer>
@@ -488,4 +283,3 @@
 
     <script src="./Scripts/main.php"></script>
 </html>
-
